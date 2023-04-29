@@ -1,14 +1,14 @@
 # GitHarvest3r
 Simple github CVE exploit researcher written in python.
 
-Installation 
+## Installation 
 ```
 git clone https://github.com/34zY/GitHarvest3r
 cd GitHarvest3r/
 pip install requests bs4
 ```
 
-Usage
+## Usage
 ```
 python GitHarvest3r.py <CVE-ID>
 ```
