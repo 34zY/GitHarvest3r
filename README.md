@@ -2,7 +2,7 @@
   <img src="https://user-images.githubusercontent.com/55347142/235300910-45f49b2f-280b-4146-965e-f3bcc46627d0.png"/>
 </p>
 
-Simple CVE exploit gathering tool written in python.
+<p align="center">Simple CVE exploit gathering tool written in python.</p>
 
 ## Installation 
 ```
