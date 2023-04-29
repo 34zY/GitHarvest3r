@@ -1,5 +1,6 @@
 ![sss-removebg-preview(1)](https://user-images.githubusercontent.com/55347142/235300910-45f49b2f-280b-4146-965e-f3bcc46627d0.png)
 
+<center>h</center>
  Simple CVE exploit gathering tool written in python.
 
 ## Installation 
