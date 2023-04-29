@@ -1,8 +1,6 @@
-<style>
-h1 {text-align: center;}
-</style>
-
-<h1>![sss-removebg-preview(1)](https://user-images.githubusercontent.com/55347142/235300910-45f49b2f-280b-4146-965e-f3bcc46627d0.png)</h1>
+<p align="center">
+  <img src="[http://some_place.com/image.png](https://user-images.githubusercontent.com/55347142/235300910-45f49b2f-280b-4146-965e-f3bcc46627d0.png)" />
+</p>
 
 Simple CVE exploit gathering tool written in python.
 
