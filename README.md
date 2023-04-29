@@ -1,6 +1,6 @@
 # GitHarvest3r
 
-![image](https://user-images.githubusercontent.com/55347142/235300101-f85f18d8-2cc5-4407-af5d-6a8d0d52de44.png)
+![sss-removebg-preview(1)](https://user-images.githubusercontent.com/55347142/235300910-45f49b2f-280b-4146-965e-f3bcc46627d0.png)
 
 Simple github CVE exploit researcher written in python.
 
