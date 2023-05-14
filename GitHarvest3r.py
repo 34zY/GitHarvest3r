@@ -1,8 +1,8 @@
-# 27/04/2023
-# pip install requests bs4
+# pip install requests beautifulsoup4 argparse
 # "CVE-2017-5638"+AND+exploit+in:name+in:description+in:readme
-import requests, re, sys, time
+import requests, re, sys, time, argparse
 from bs4 import BeautifulSoup
+
 
 class style():
         BLACK_BG = "\033[40m"
@@ -26,10 +26,12 @@ class style():
         BOLD = '\033[1m'
         CL_BEFORE = '\r\x1b[2K'
 
+        
 STATUS_OK = style.GREEN + '[*] ' + style.RESET
 STATUS_FOUND = style.YELLOW + ' > ' + style.RESET
 STATUS_ERR = style.RED + '[!] ' +style.RESET
 STATUS_LOAD = style.BOLD + style.YELLOW + '[~] ' +style.RESET
+
 
 def banner():
         return """
@@ -40,7 +42,8 @@ def banner():
                  @34zY
                  """
 
-def main(STATUS_ERR,STATUS_FOUND,STATUS_OK):
+def main(STATUS_ERR,STATUS_FOUND,STATUS_OK, args):
+
 
         cookies = {
         '_gh_sess': '08EwjO1uVbp%2B79varEEmj2yvvV9HCEQAMlZFrzWxudftlHPOH582rs9ImKC7XzIHdryfGZ4PVRJOB%2F3oJYMfEVyJcCMhZWvpdU6GRNiZcjQZ1YgGv0EoDHd6NhX4sm5l21nmlLaQCWxXBsg7el6UAbzJhz0cswYM%2FFEw%2BcXLveYgj2HPvij7WHM%2B5DFeeaGJh5Q3iu%2Bu4W9Oj0dMdnHGkwMhfzzJ0EIyCbYl36T57Qj7cy4xmioitB8rEWIBD30yD%2FhRjTq7DpxREI%2F8mxOBdRM52q39JXpIXQ%3D%3D--KpRVdwx1%2B%2BavAvAc--pJHbOVsLKf3yfrMecflT2A%3D%3D',
@@ -67,36 +70,26 @@ def main(STATUS_ERR,STATUS_FOUND,STATUS_OK):
         
         # CVE-2017-5637 NO
         # CVE-2017-5638 OK
-        print(STATUS_LOAD + "Searching exploit for " + sys.argv[1] + " ...")
+        CVE_ID = args.search
+        print(STATUS_LOAD + "Searching exploit for " + CVE_ID + " ...")
         time.sleep(1)
-        CVE_ID = sys.argv[1]
+
 
         params = {
         'q': f'"{CVE_ID}" AND "exploit" in:name in:description in:readme OR "{CVE_ID}" AND "poc" in:name in:description in:readme OR "{CVE_ID} AND" "Proof of Concept" in:name in:description in:readme',
-
-        #"CVE-2023-27532" AND "exploit" in:name in:description in:readme OR "CVE-2023-27532" AND "poc" in:name in:description in:readme OR "CVE-2023-27532 AND" "Proof of Concept" in:name in:description in:readme
-        #{sys.argv[1]} AND exploit in:name in:description in:readme OR {sys.argv[1]} AND poc in:name in:description in:readme OR {sys.argv[1]} AND Proof of Concept in:name in:description in:readme
-        #CVE-2019-18634 exploit OR CVE-2019-18634 AND poc in:name in:description in:readme OR CVE-2019-18634 AND Proof of Concept in:name in:description in:readme
-        #'q': f'"{sys.argv[1]}"+AND+exploit+in:name+in:description+in:readme+OR+poc+in:name+in:description+in:readme',
         'type': 'repositories',
         }
         
         response = requests.get('https://github.com/search', params=params, cookies=cookies, headers=headers)
-        
-        body = response.content.decode()
-        #print(" DEBUG  =========== \n" + body + " \n ===========")
-        
+        body = response.content.decode()        
         soup = BeautifulSoup(body, "html.parser")
         no_exploit = 't find any repositories matching'
         
         if no_exploit in body:
                 print(STATUS_ERR + "No exploit found!")
         
-        else:
-                #print("yes!")
-                
+        else:   
                 exploit_number = soup.find_all("h3") # extract number of exploits
-                #print(exploit_number[1]) # 2nd balise 
                 exploit_num = str(exploit_number[1])
                 parse_exploit_num = exploit_num.replace('<h3>','')
                 parse_exploit_num = parse_exploit_num.replace('</h3>','')
@@ -105,9 +98,7 @@ def main(STATUS_ERR,STATUS_FOUND,STATUS_OK):
                 parse_exploit_num = parse_exploit_num.replace('    ','')
                 print(STATUS_OK + parse_exploit_num + ' exploits found!')
         
-                # extract link from html
-                # <a class="v-align-middle" data-hydro-click="{&quot;event_type&quot;:&quot;search_result.click&quot;
-                pattern_retrieve_link = r'&quot;url&quot;:&quot;https://github.com/(.*?)/(.*?)&quot;' # search between [&quot;url&quot;:&quot;https://github.com/] and [&quot;]
+                pattern_retrieve_link = r'&quot;url&quot;:&quot;https://github.com/(.*?)/(.*?)&quot;'
                 links = re.findall(pattern_retrieve_link, body)
         
                 for link in links:
@@ -115,14 +106,9 @@ def main(STATUS_ERR,STATUS_FOUND,STATUS_OK):
 
 
 if __name__ == '__main__':
-        z=0
-        for args in sys.argv:
-                z+=1
-        #print(z)
 
-        if z == 2:
-                print(style.BOLD + style.RED + banner() + style.RESET)
-                main(STATUS_ERR,STATUS_FOUND,STATUS_OK)
-        else:
-                print(style.BOLD + style.RED + banner() + style.RESET)
-                print(STATUS_LOAD + "Usage: python GitHarvest3r.py <CVE ID>\n"+STATUS_LOAD+"Example: python GitHarvest3r.py CVE-2017-5638")
+        print(style.BOLD + style.RED + banner() + style.RESET)
+        parser = argparse.ArgumentParser()
+        parser.add_argument("-s", "--search", help = "CVE ID", required=True)
+        args = parser.parse_args()
+        main(STATUS_ERR,STATUS_FOUND,STATUS_OK, args)
