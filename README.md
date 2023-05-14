@@ -13,9 +13,10 @@ pip install requests beautifulsoup4 argparse
 
 ## Usage
 ```
-python GitHarvest3r.py <CVE-ID>
+python GitHarvest3r.py -s <CVE-ID>
+python GitHarvest3r.py --search <CVE-ID>
 ```
 
 <br>
 
-![image](https://user-images.githubusercontent.com/55347142/235300969-535c457b-5285-4101-b14d-331a60e0f65b.png)
+![image](https://github.com/34zY/GitHarvest3r/assets/55347142/fb91edf1-3e06-465b-a512-eea221433436)
