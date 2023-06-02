@@ -1,5 +1,3 @@
-# pip install requests beautifulsoup4 argparse
-# "CVE-2017-5638"+AND+exploit+in:name+in:description+in:readme
 import requests, re, sys, time, argparse
 from bs4 import BeautifulSoup
 
