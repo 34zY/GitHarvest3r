@@ -50,7 +50,6 @@ def main(STATUS_ERR,STATUS_FOUND,STATUS_OK, args):
         '_octo': 'GH1.1.548229103.1682616213',
         'logged_in': 'no',
         'preferred_color_mode': 'dark',
-        'tz': 'Europe%2FParis',
         }
         
         headers = {
