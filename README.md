@@ -8,7 +8,7 @@
 ```
 git clone https://github.com/34zY/GitHarvest3r
 cd GitHarvest3r/
-pip install requests beautifulsoup4 argparse
+pip install -r requirements.txt
 ```
 
 ## Usage
