@@ -28,8 +28,11 @@ STATUS_FOUND = style.YELLOW + ' > ' + style.RESET
 STATUS_ERR = style.RED + '[!] ' +style.RESET
 STATUS_LOAD = style.BOLD + style.YELLOW + '[~] ' +style.RESET
 
-USER = 'USER-1337'
+USER = 'USER-1337' # SET YOUR USERNAME 
 TOKEN = '' # USE YOUR BASIC GITHUB TOKEN 
+
+def Error_not_found():
+        return STATUS_ERR + " No exploit found!"
 
 def banner():
         return """
@@ -57,7 +60,7 @@ def main(STATUS_ERR,STATUS_FOUND,STATUS_OK, args, USER, TOKEN):
  
         
         if response.status_code != 200:
-                print(STATUS_ERR + "No exploit found!")
+                print(Error_not_found())
         
         else:   
 
@@ -69,6 +72,9 @@ def main(STATUS_ERR,STATUS_FOUND,STATUS_OK, args, USER, TOKEN):
                         exploit_num += 1
                         print(STATUS_FOUND + repo['html_url'])
 
+                if exploit_num == 0:
+                        print(Error_not_found())
+                
                 print('\n'+STATUS_OK + str(exploit_num) + ' exploits found!')
 
 
