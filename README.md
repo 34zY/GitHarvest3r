@@ -4,16 +4,19 @@
 
 <p align="center">Simple CVE exploit gathering tool written in python.</p>
 
-## Installation / Setup API Key  
+## Installation   
 ```
 git clone https://github.com/34zY/GitHarvest3r
 cd GitHarvest3r/
 pip install -r requirements.txt
 ```
 
-Get your Free Github API Key =>  ![Personal access tokens (classic)](https://github.com/settings/tokens)
+## Setup API Key 
 
-![image](https://github.com/34zY/GitHarvest3r/assets/55347142/f346eafa-a9eb-45f6-88f6-f9a497f36e1f)
+1) Get your Free Github API Key =>  ![Personal access tokens (classic)](https://github.com/settings/tokens)
+
+2) ![image](https://github.com/34zY/GitHarvest3r/assets/55347142/c1d80d56-3031-4e9c-b0aa-edb7616bdd38)
+
 
 
 
