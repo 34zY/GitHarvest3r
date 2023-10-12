@@ -28,7 +28,7 @@ STATUS_FOUND = style.YELLOW + ' > ' + style.RESET
 STATUS_ERR = style.RED + '[!] ' +style.RESET
 STATUS_LOAD = style.BOLD + style.YELLOW + '[~] ' +style.RESET
 
-USER = '' # SET YOUR USERNAME 
+USER = 'USER-1337'
 TOKEN = '' # USE YOUR BASIC GITHUB TOKEN 
 
 def banner():
