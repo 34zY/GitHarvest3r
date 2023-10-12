@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 <br>
 
-GitHarvest3r.py
+GitHarvest3r.py<br>
   ![image](https://github.com/34zY/GitHarvest3r/assets/55347142/c1d80d56-3031-4e9c-b0aa-edb7616bdd38)
 
 
