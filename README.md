@@ -13,7 +13,7 @@ pip install -r requirements.txt
 
 Get your Free Github API Key =>  ![Personal access tokens (classic)](https://github.com/settings/tokens)
 
-![image](https://github.com/34zY/GitHarvest3r/assets/55347142/76c631d1-3c34-4a22-b6aa-e9698b955afc)
+![image](https://github.com/34zY/GitHarvest3r/assets/55347142/f346eafa-a9eb-45f6-88f6-f9a497f36e1f)
 
 
 
