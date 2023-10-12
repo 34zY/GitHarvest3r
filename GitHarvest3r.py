@@ -74,8 +74,9 @@ def main(STATUS_ERR,STATUS_FOUND,STATUS_OK, args, USER, TOKEN):
 
                 if exploit_num == 0:
                         print(Error_not_found())
-                
-                print('\n'+STATUS_OK + str(exploit_num) + ' exploits found!')
+
+                else:
+                        print('\n'+STATUS_OK + str(exploit_num) + ' exploits found!')
 
 
 if __name__ == '__main__':
