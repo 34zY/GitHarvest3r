@@ -34,3 +34,7 @@ python GitHarvest3r.py --search <CVE-ID>
 <br>
 
 ![image](https://github.com/34zY/GitHarvest3r/assets/55347142/fb91edf1-3e06-465b-a512-eea221433436)
+
+## Caution
+
+I'm not responsible for any bad use case, use this script at your own risks, do not use it for any illegal operation.   
