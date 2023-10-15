@@ -37,4 +37,4 @@ python GitHarvest3r.py --search <CVE-ID>
 
 ## Caution
 
-I'm not responsible for any bad use case, use this script at your own risks, do not use it for any illegal operations.   
+I'm not responsible for any bad use case, use this script at your own risks, do not use it for any illegal/unethical operations.   
