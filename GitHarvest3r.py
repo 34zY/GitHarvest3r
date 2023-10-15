@@ -1,3 +1,10 @@
+# ====================================================================================
+# Author      : 34zY 
+# Date        : none
+# Version     : 1.1
+# Description :  Simple CVE github exploit gathering tool written in python. 
+# ====================================================================================
+
 import requests, sys, time, argparse
 
 class style():
